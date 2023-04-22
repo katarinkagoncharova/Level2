@@ -31,5 +31,10 @@
             DepositAmount += sum;
             return true;
         }
+
+        public override float Amount()
+        {
+            return DepositAmount;
+        }
     }
 }

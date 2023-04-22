@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Cards
+﻿namespace Cards
 {
     public class CardHolder
     {

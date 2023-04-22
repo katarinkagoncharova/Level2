@@ -29,6 +29,6 @@
         public abstract bool MakePayment(float sum);
 
         public abstract bool TopUp(float sum);
-
+        public abstract float Amount();
     }
 }

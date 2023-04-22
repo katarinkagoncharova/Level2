@@ -35,5 +35,10 @@ namespace Cards
         {
             return ("Cashback Card\n" + base.ToString() + "\nCard amount : " + CashBackCardAmount + "\nCashback procent: " + CashBackProcent + "\n");
         }
+
+        public override float Amount()
+        {
+            return CashBackCardAmount;
+        }
     }
 }

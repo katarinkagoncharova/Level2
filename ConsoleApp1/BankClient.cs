@@ -1,6 +1,6 @@
 ﻿namespace Cards
 {
-    public class BankClient
+    public class BankClient: IComparable<BankClient>
     {
         public CardHolder CardHolder { get; set; }
         public Address Address { get; set; }
@@ -65,8 +65,50 @@
                 Console.WriteLine(payment.ToString());
             }
         }
-    }
 
+        public int CompareTo(BankClient? other)
+        {
+            return this.CardHolder.Name.CompareTo(other.CardHolder.Name);
+        }
+
+        public int CountCards()
+        {
+           int count = 0;
+            foreach (var n in PaymentMeans)
+            {
+                if (n is PaymentCard)
+                {
+                    count++;
+                }
+            }  
+            return count;
+        }
+
+        public float TotalAmount()
+        {
+            float totalAmount = 0;
+            foreach (var n in PaymentMeans)
+            {
+                totalAmount += n.Amount();
+            }
+            return totalAmount;
+        }
+
+        public float MaxAmount()
+        {
+            float maxAmount = 0;
+            foreach (var n in PaymentMeans)
+            {
+                if (n.Amount() > maxAmount) 
+                {
+                    maxAmount = n.Amount();
+                }
+            }
+            return maxAmount;
+        }
+
+    }
+     
 
 
 

@@ -30,6 +30,10 @@
             return "BitCoin amount: " + Amount + "\n";
         }
 
+        float IPayment.Amount()
+        {
+            return Amount * Rate;
+        }
     }
 
 }

@@ -30,5 +30,10 @@
         {
             return "Cash amount: " + Amount + "\n";
         }
+
+        float IPayment.Amount()
+        {
+            return Amount;
+        }
     }
 }

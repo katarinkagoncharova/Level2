@@ -32,5 +32,10 @@
             CreditLimit += sum;
             return true;
         }
+
+        public override float Amount()
+        {
+            return CreditLimit;
+        }
     }
 }
