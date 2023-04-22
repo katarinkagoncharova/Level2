@@ -1,6 +1,5 @@
-﻿using System.Collections.Immutable;
-using System.Reflection.PortableExecutable;
-using System.Security.Cryptography.X509Certificates;
+﻿
+using Cards.Comparers;
 
 namespace Cards
 {
@@ -46,7 +45,7 @@ namespace Cards
                  "+3752536987",
                  new List<IPayment> { new Cash(1000f), card1, card2, card3, new BitCoin(1500f) });
 
-            // 2000    400    1200   7500    total 11100
+            // 2000   1200   7500  400    total 11100
             BankClient client2 = new BankClient(new CardHolder("Oleg", "Kot"),
                  new Address("Brest", "Gomelskaya", 10, 3),
                  "+375445896532",
@@ -79,16 +78,10 @@ namespace Cards
             var res3 = BankClients.OrderBy(x => x.CountCards()).ToList();
             var res4 = BankClients.OrderBy(x => x.TotalAmount()).ToList();
             var res5 = BankClients.OrderBy(x => x.MaxAmount()).ToList();
-
             var res6 = client1.PaymentMeans.Select(x => x as DebetCard).Where(x => x != null).ToList(); 
-
             var res7 = client2.PaymentMeans.Select(x => x.Amount()).Sum();
-
-
             var res8 = BankClients.Where(x => x.PaymentMeans.OfType<BitCoin>().Any()).ToList().OrderByDescending(x => x.TotalAmount()).ToList();
 
-  
-            var res = client2.PaymentMeans.Select(x => x.Amount()).Sum();
         }
     }
 }
