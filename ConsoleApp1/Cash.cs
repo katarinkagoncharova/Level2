@@ -35,5 +35,14 @@
         {
             return Amount;
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Cash other) 
+            {
+                return Amount == other.Amount;
+            } 
+            return false;
+        }
     }
 }

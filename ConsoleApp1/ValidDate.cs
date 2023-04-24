@@ -15,5 +15,14 @@
         {
             return Month + "/" + Year;
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is ValidDate other) 
+            {
+                return Month == other.Month && Year == other.Year;
+            }
+            return false;
+        }
     }
 }

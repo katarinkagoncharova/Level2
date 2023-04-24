@@ -66,6 +66,20 @@
             }
         }
 
+        public string AllPaymentMeans()
+        {
+           String res = string.Empty;
+
+            foreach (IPayment payment in PaymentMeans)
+            {
+               res += payment.ToString();            
+            }
+
+            return res;
+        }
+
+
+
         public int CompareTo(BankClient? other)
         {
             return this.CardHolder.Name.CompareTo(other.CardHolder.Name);
@@ -106,6 +120,24 @@
             }
             return maxAmount;
         }
+
+        public override string ToString()
+        {
+    
+            return "Card Holder: \n" + CardHolder + "\n" + Address + "\n" + "Phone number \n"
+                   + PhoneNumber + "\n" + AllPaymentMeans();
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is BankClient other)
+            {
+                return (CardHolder.Equals(other.CardHolder) &&
+                        Address.Equals(other.Address) &&
+                        TotalAmount() == other.TotalAmount());
+            }
+            return false;
+        } 
 
     }
      

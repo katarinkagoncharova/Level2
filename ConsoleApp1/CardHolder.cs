@@ -18,5 +18,14 @@
             return Name + " " + Surname;
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is CardHolder other)
+            {
+                return Name == other.Name && Surname == other.Surname;
+            }
+            return false;
+        }
+
     }
 }

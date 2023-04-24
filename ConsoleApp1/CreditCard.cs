@@ -17,6 +17,16 @@
             return ("Credit Card\n" + base.ToString() + "\nCredit limit: " + CreditLimit + "\nCredit procent: " + CreditProcent + "\n");
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is CreditCard other) 
+            {
+                return (base.CardHolder == other.CardHolder &&
+                       CreditLimit == other.CreditLimit);
+            }
+            return false;
+        }
+
         public override bool MakePayment(float sum)
         {
             if (sum <= CreditLimit) 

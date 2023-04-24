@@ -36,6 +36,16 @@ namespace Cards
             return ("Cashback Card\n" + base.ToString() + "\nCard amount : " + CashBackCardAmount + "\nCashback procent: " + CashBackProcent + "\n");
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is CashBackCard other) 
+            {
+                return (base.CardHolder == other.CardHolder &&
+                       CashBackCardAmount == other.CashBackCardAmount);
+            }
+            return false;
+        }
+
         public override float Amount()
         {
             return CashBackCardAmount;

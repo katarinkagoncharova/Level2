@@ -57,6 +57,12 @@ namespace Cards
                              "+3753322211444",
                              new List<IPayment> { new Cash(9000f), card6, new BitCoin(2200f)});
 
+            BankClient client4 = new BankClient(new CardHolder("Maxim", "Ivanov"),
+                            new Address("Gomel", "Truda", 47, 38),
+                            "+3753322211444",
+                            new List<IPayment> { new Cash(9000f), card6, new BitCoin(2200f) });
+
+            bool a = client3.Equals(client4);
 
             //client1.MakePayment(1200f);
             //client1.MakePayment(2000f);
@@ -64,6 +70,8 @@ namespace Cards
             //client1.MakePayment(3000f);
 
             //client1.PrintPaymentMeans();
+
+            Console.WriteLine(client1);
 
             List<BankClient> BankClients = new List<BankClient> {client1, client2, client3};
 

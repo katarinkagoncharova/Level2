@@ -16,6 +16,16 @@
             return ("Debet Card\n" + base.ToString() + "\nDeposit amount: " + DepositAmount + "\nDeposit procent: " + DepositProcent + "\n");
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is DebetCard other)
+            {
+                return (base.CardHolder == other.CardHolder &&
+                       DepositAmount == other.DepositAmount);
+            }
+            return false;
+        }
+
         public override bool MakePayment(float sum)
         {
             if (sum <= DepositAmount)

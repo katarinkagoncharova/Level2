@@ -30,6 +30,15 @@
             return "BitCoin amount: " + Amount + "\n";
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is BitCoin other)
+            {
+                return Amount == other.Amount;
+            }
+            return false;
+        }
+
         float IPayment.Amount()
         {
             return Amount * Rate;

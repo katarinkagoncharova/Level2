@@ -20,5 +20,18 @@
             return "Address: "+ City + ", " + Street + " " + HouseNumber + "/" + ApartmentNumber;
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj is Address address) 
+            {
+                return ((City == address.City) &&
+                       (Street == address.Street) &&
+                       (HouseNumber == address.HouseNumber) &&
+                       (ApartmentNumber == address.ApartmentNumber));
+            }
+            return false;
+        }
+
     }
 }
+ 
