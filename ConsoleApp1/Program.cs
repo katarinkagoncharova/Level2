@@ -58,7 +58,7 @@ namespace Cards
                              new List<IPayment> { new Cash(9000f), card6, new BitCoin(2200f)});
 
             BankClient client4 = new BankClient(new CardHolder("Maxim", "Ivanov"),
-                            new Address("Gomel", "Truda", 47, 38),
+                            new Address("Gomel", "Pushkina", 10, 501),
                             "+3753322211444",
                             new List<IPayment> { new Cash(9000f), card6, new BitCoin(2200f) });
 

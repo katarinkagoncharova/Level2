@@ -2,8 +2,38 @@
 {
     public class DebetCard: PaymentCard
     {
-        public float DepositProcent { get; set; }
-        public float DepositAmount { get; set; }
+        private float _depositAmount;
+        private float _depositProcent;
+        public float DepositProcent
+        {
+            get 
+            {
+                return _depositProcent;
+            }
+            set 
+            {
+                if (value < 0) 
+                {
+                    throw new ArgumentException("Deposit procent cannot be negative");
+                }
+                _depositAmount = value;
+            }
+        }
+        public float DepositAmount 
+        {
+            get 
+            {
+                return _depositAmount;
+            }
+            set
+            { 
+                if (value < 0) 
+                {
+                    throw new ArgumentException("Amount cannot be negative");
+                }
+                _depositAmount = value;
+            }
+        }
 
         public DebetCard(int number, ValidDate validDate, CardHolder cardHolder, int cvv, float depositProcent, float depositAmount)
             : base(number, validDate, cardHolder, cvv) 

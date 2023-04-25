@@ -2,7 +2,23 @@
 {
     public class BitCoin: IPayment
     {
-        public float Amount { get; set; }
+        private float _amount;
+        public float Amount
+        {
+            get 
+            {
+                return _amount;
+            }
+            set 
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Amount cannot be negative");
+                }
+                _amount = value;
+            }                
+        }
+
         public float Rate = 2f;
 
         public BitCoin(float amount) 

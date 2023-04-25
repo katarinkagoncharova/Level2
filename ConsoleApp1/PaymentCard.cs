@@ -2,10 +2,40 @@
 {
     public abstract class PaymentCard: IPayment
     {
-        public int Number;
-        public ValidDate ValidDate;
-        public CardHolder CardHolder;
-        public int Cvv;
+        private int _number;
+        private int _cvv;
+        public int Number 
+        {
+            get 
+            {
+                return _number;
+            }
+            set
+            {
+                if (value < 0 || value > 99999999) 
+                {
+                    throw new ArgumentOutOfRangeException("invalid value");
+                }
+                _number = value;
+            }
+        }
+        public ValidDate ValidDate { get; set;}
+        public CardHolder CardHolder { get; set;}
+        public int Cvv
+        {
+            get 
+            {
+                return _cvv;
+            }
+            set 
+            {
+                if (value < 0 || value > 999) 
+                {
+                    throw new ArgumentOutOfRangeException("invalid value");
+                }
+                _cvv = value;
+            } 
+        }
 
         public PaymentCard(int number, ValidDate validDate, CardHolder cardHolder, int cvv)
         {

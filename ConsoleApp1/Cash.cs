@@ -2,7 +2,22 @@
 {
     public class Cash:IPayment
     {
-        public float Amount { get; set; }
+        private float _amount;
+        public float Amount 
+        {
+            get 
+            {
+                return _amount;
+            }
+            set 
+            {
+                if (value < 0) 
+                {
+                    throw new ArgumentException("Amount cannot be negative");
+                }
+                _amount = value;
+            }
+        }
 
         public Cash(float sum) 
         {

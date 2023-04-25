@@ -2,9 +2,54 @@
 {
     public class Address
     {
-        public string City { get; set; }
-        public string Street { get; set; }
-        public int HouseNumber { get; set; }
+        private string _city;
+        private string _street;
+        private int _houseNumber;
+        public string City 
+        {
+            get
+            { 
+                return _city;
+            }
+            set 
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new NullReferenceException("Obj is null or empty");
+                }
+                _city = value;
+            }
+        }
+        public string Street 
+        { 
+            get 
+            {
+                return _street;
+            }
+            set 
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new NullReferenceException("Obj is null or empty");
+                }
+                _street = value;
+            }
+        }
+        public int HouseNumber 
+        {
+            get 
+            {
+                return _houseNumber;
+            }
+            set 
+            {
+                if (value > 500 || value <= 0) 
+                {
+                    throw new ArgumentException("Invalid house number");
+                }
+                _houseNumber = value;
+            }
+        }
         public int ApartmentNumber { get; set; }
 
         public Address(string city, string street, int houseNumber, int apartmentNumber)

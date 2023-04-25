@@ -2,8 +2,38 @@
 {
     public class ValidDate
     {
-        public int Month { get; set; }
-        public int Year { get; set; }
+        private int _month;
+        private int _year;
+        public int Month 
+        {
+            get 
+            {
+                return _month;
+            }
+            set 
+            {
+                if (value < 1 || value > 12) 
+                {
+                    throw new ArgumentOutOfRangeException("value must be between 1 and 12 ");
+                }
+                _month = value;
+            }
+        }
+        public int Year 
+        {
+            get 
+            {
+                return _year;
+            }
+            set 
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Year cannot be negative");
+                }
+                _year = value;
+            }
+        }
 
         public ValidDate(int month, int year) 
         {
