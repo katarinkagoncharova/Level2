@@ -1,40 +1,42 @@
-﻿namespace Cards
+﻿using Cards.Client;
+
+namespace Cards.PaymentTools
 {
-    public abstract class PaymentCard: IPayment
+    public abstract class PaymentCard : IPayment
     {
         private int _number;
         private int _cvv;
-        public int Number 
+        public int Number
         {
-            get 
+            get
             {
                 return _number;
             }
-            set
+            init
             {
-                if (value < 0 || value > 99999999) 
+                if (value < 0 || value > 99999999)
                 {
                     throw new ArgumentOutOfRangeException("invalid value");
                 }
                 _number = value;
             }
         }
-        public ValidDate ValidDate { get; set;}
-        public CardHolder CardHolder { get; set;}
+        public ValidDate ValidDate { get; set; }
+        public CardHolder CardHolder { get; set; }
         public int Cvv
         {
-            get 
+            get
             {
                 return _cvv;
             }
-            set 
+            init
             {
-                if (value < 0 || value > 999) 
+                if (value < 0 || value > 999)
                 {
                     throw new ArgumentOutOfRangeException("invalid value");
                 }
                 _cvv = value;
-            } 
+            }
         }
 
         public PaymentCard(int number, ValidDate validDate, CardHolder cardHolder, int cvv)
@@ -42,18 +44,18 @@
             Number = number;
             ValidDate = validDate;
             CardHolder = cardHolder;
-            Cvv= cvv;
+            Cvv = cvv;
         }
 
         public string GetCardInfo()
         {
-            return $"Number: {Number}  DateValidity: {ValidDate.Month +"."+ ValidDate.Year}  " +
+            return $"Number: {Number}  DateValidity: {ValidDate.Month + "." + ValidDate.Year}  " +
                 $"CardHolder: {CardHolder}  CVV: {Cvv}";
         }
 
         public override string ToString()
         {
-            return ("Number: " + Number + "\nValid date: " + ValidDate + "\nCard Holder: " + CardHolder + "\nCVV: " + Cvv);
+            return "Number: " + Number + "\nValid date: " + ValidDate + "\nCard Holder: " + CardHolder + "\nCVV: " + Cvv;
         }
 
         public abstract bool MakePayment(float sum);

@@ -1,4 +1,4 @@
-﻿namespace Cards
+﻿namespace Cards.PaymentTools
 {
     public interface IPayment
     {

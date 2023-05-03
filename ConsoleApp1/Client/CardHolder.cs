@@ -1,4 +1,4 @@
-﻿namespace Cards
+﻿namespace Cards.Client
 {
     public class CardHolder
     {
@@ -12,11 +12,11 @@
             }
             set
             {
-                if (string.IsNullOrEmpty(value)) 
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new NullReferenceException("Obj is null or empty");
                 }
-                else 
+                else
                 {
                     if (value.Length > 50)
                     {
@@ -26,8 +26,9 @@
                 }
             }
         }
-        public string Surname 
-        { get
+        public string Surname
+        {
+            get
             {
                 return _surname;
             }
@@ -43,9 +44,9 @@
                 }
             }
         }
-        
 
-        public CardHolder(string name, string surname) 
+
+        public CardHolder(string name, string surname)
 
         {
             Name = name;

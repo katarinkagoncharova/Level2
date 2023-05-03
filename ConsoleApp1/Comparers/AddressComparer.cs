@@ -1,9 +1,15 @@
-﻿namespace Cards
+﻿using Cards.Client;
+
+namespace Cards
 {
-    internal class AddressComparer : IComparer<BankClient>
+    public class AddressComparer : IComparer<BankClient>
     {
         public int Compare(BankClient? x, BankClient? y)
         {
+            if (x == null || y == null) 
+            {
+                throw new ArgumentNullException();
+            }
             return x.Address.City.CompareTo(y.Address.City);
         }
     }

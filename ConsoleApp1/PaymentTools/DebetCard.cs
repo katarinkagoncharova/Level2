@@ -1,33 +1,35 @@
-﻿namespace Cards
+﻿using Cards.Client;
+
+namespace Cards.PaymentTools
 {
-    public class DebetCard: PaymentCard
+    public class DebetCard : PaymentCard
     {
         private float _depositAmount;
         private float _depositProcent;
         public float DepositProcent
         {
-            get 
+            get
             {
                 return _depositProcent;
             }
-            set 
+            set
             {
-                if (value < 0) 
+                if (value < 0)
                 {
                     throw new ArgumentException("Deposit procent cannot be negative");
                 }
                 _depositAmount = value;
             }
         }
-        public float DepositAmount 
+        public float DepositAmount
         {
-            get 
+            get
             {
                 return _depositAmount;
             }
             set
-            { 
-                if (value < 0) 
+            {
+                if (value < 0)
                 {
                     throw new ArgumentException("Amount cannot be negative");
                 }
@@ -36,22 +38,22 @@
         }
 
         public DebetCard(int number, ValidDate validDate, CardHolder cardHolder, int cvv, float depositProcent, float depositAmount)
-            : base(number, validDate, cardHolder, cvv) 
+            : base(number, validDate, cardHolder, cvv)
         {
             DepositProcent = depositProcent;
             DepositAmount = depositAmount;
         }
         public override string ToString()
         {
-            return ("Debet Card\n" + base.ToString() + "\nDeposit amount: " + DepositAmount + "\nDeposit procent: " + DepositProcent + "\n");
+            return "Debet Card\n" + base.ToString() + "\nDeposit amount: " + DepositAmount + "\nDeposit procent: " + DepositProcent + "\n";
         }
 
         public override bool Equals(object? obj)
         {
             if (obj is DebetCard other)
             {
-                return (base.CardHolder == other.CardHolder &&
-                       DepositAmount == other.DepositAmount);
+                return CardHolder == other.CardHolder &&
+                       DepositAmount == other.DepositAmount;
             }
             return false;
         }

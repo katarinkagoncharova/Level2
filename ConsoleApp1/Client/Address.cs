@@ -1,17 +1,17 @@
-﻿namespace Cards
+﻿namespace Cards.Client
 {
     public class Address
     {
         private string _city;
         private string _street;
         private int _houseNumber;
-        public string City 
+        public string City
         {
             get
-            { 
+            {
                 return _city;
             }
-            set 
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -20,13 +20,13 @@
                 _city = value;
             }
         }
-        public string Street 
-        { 
-            get 
+        public string Street
+        {
+            get
             {
                 return _street;
             }
-            set 
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -35,15 +35,15 @@
                 _street = value;
             }
         }
-        public int HouseNumber 
+        public int HouseNumber
         {
-            get 
+            get
             {
                 return _houseNumber;
             }
-            set 
+            set
             {
-                if (value > 500 || value <= 0) 
+                if (value > 500 || value <= 0)
                 {
                     throw new ArgumentException("Invalid house number");
                 }
@@ -62,21 +62,20 @@
 
         public override string ToString()
         {
-            return "Address: "+ City + ", " + Street + " " + HouseNumber + "/" + ApartmentNumber;
+            return "Address: " + City + ", " + Street + " " + HouseNumber + "/" + ApartmentNumber;
         }
 
         public override bool Equals(object? obj)
         {
-            if (obj is Address address) 
+            if (obj is Address address)
             {
-                return ((City == address.City) &&
-                       (Street == address.Street) &&
-                       (HouseNumber == address.HouseNumber) &&
-                       (ApartmentNumber == address.ApartmentNumber));
+                return City == address.City &&
+                       Street == address.Street &&
+                       HouseNumber == address.HouseNumber &&
+                       ApartmentNumber == address.ApartmentNumber;
             }
             return false;
         }
 
     }
 }
- 
