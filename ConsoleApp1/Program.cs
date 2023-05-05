@@ -73,7 +73,7 @@ namespace Cards
 
             //client1.PrintPaymentMeans();
 
-            //Console.WriteLine(client1);
+            Console.WriteLine(client1);
 
             List<BankClient> BankClients = new List<BankClient> {client1, client2, client3};
 

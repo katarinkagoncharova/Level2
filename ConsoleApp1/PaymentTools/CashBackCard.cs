@@ -19,7 +19,7 @@ namespace Cards.PaymentTools
             if (CashBackCardAmount >= sum)
             {
                 CashBackCardAmount -= sum;
-                CashBackCardAmount += sum * CashBackCardAmount;
+                CashBackCardAmount += sum * CashBackProcent;
                 return true;
             }
             return false;
@@ -28,7 +28,7 @@ namespace Cards.PaymentTools
         public override bool TopUp(float sum)
         {
             CashBackCardAmount += sum;
-            CashBackCardAmount += sum * CashBackCardAmount;
+            CashBackCardAmount += sum * CashBackProcent;
             return true;
         }
 

@@ -2,7 +2,7 @@
 
 namespace Cards.PaymentTools
 {
-    internal class CreditCard : PaymentCard
+    public class CreditCard : PaymentCard
     {
         public float CreditProcent { get; set; }
         public float CreditLimit { get; set; }

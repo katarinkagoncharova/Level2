@@ -4,7 +4,6 @@
     {
         bool MakePayment(float sum);
         bool TopUp(float sum);
-
         float Amount();
     }
 }

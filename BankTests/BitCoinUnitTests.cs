@@ -1,4 +1,6 @@
-﻿using Cards.PaymentTools;
+﻿using Cards;
+using Cards.Client;
+using Cards.PaymentTools;
 
 namespace BankTests
 
@@ -44,7 +46,7 @@ namespace BankTests
         {
             BitCoin bitCoin = new BitCoin(500);
             Assert.IsFalse(bitCoin.MakePayment(1200));
-            Assert.AreEqual(bitCoin.Amount, 500);
+            Assert.AreEqual(bitCoin.Amount(), 1000);
         }
 
         [TestMethod]
@@ -52,7 +54,7 @@ namespace BankTests
         {
             BitCoin bitCoin = new BitCoin(500);
             Assert.IsTrue(bitCoin.MakePayment(900));
-            Assert.AreEqual(bitCoin.Amount, 50);
+            Assert.AreEqual(bitCoin.Amount(), 100);
         }
 
         [TestMethod]
@@ -61,7 +63,22 @@ namespace BankTests
             BitCoin bitCoin = new BitCoin(500);
 
             Assert.IsTrue(bitCoin.TopUp(200));
-            Assert.AreEqual(bitCoin.Amount, 600);
+            Assert.AreEqual(bitCoin.Amount(), 1200);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CheckNegativeAmound()
+        {
+            BitCoin bitCoin = new BitCoin(-500);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void MakePaymentSumNegative()
+        {
+            BitCoin bitCoin = new BitCoin(500);
+            bitCoin.MakePayment(-1200);
         }
 
 

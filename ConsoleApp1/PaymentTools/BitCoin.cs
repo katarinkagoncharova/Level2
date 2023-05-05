@@ -37,7 +37,7 @@ namespace Cards
         {
             if (sum > 0)
             {
-                _amount += sum;
+                _amount += sum / Rate;
                 return true;
             }
             throw new ArgumentException("Sum cannot be negative");         

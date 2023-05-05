@@ -18,9 +18,9 @@
                 }
                 else
                 {
-                    if (value.Length > 50)
+                    if (value.Length > 20)
                     {
-                        throw new ArgumentOutOfRangeException("The number of characters is more than 50");
+                        throw new ArgumentOutOfRangeException("The number of characters is more than 20");
                     }
                     _name = value;
                 }

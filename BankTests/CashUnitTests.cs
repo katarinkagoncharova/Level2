@@ -43,7 +43,7 @@ namespace BankTests
             Cash cash = new Cash(500);
 
             Assert.IsFalse(cash.MakePayment(700));
-            Assert.AreEqual(cash.Amount, 500);
+            Assert.AreEqual(cash.Amount(), 500);
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace BankTests
             Cash cash = new Cash(500);
 
             Assert.IsTrue(cash.MakePayment(200));
-            Assert.AreEqual(cash.Amount, 300);
+            Assert.AreEqual(cash.Amount(), 300);
         }
 
         [TestMethod]
@@ -61,7 +61,9 @@ namespace BankTests
             Cash cash = new Cash(500);
 
             Assert.IsTrue(cash.TopUp(200));
-            Assert.AreEqual(cash.Amount, 700);
+            Assert.AreEqual(cash.Amount(), 700);
         }
+
+
     }
 }

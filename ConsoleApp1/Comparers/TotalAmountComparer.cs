@@ -2,7 +2,7 @@
 
 namespace Cards.Comparers
 {
-    internal class TotalAmountComparer : IComparer<BankClient>
+    public class TotalAmountComparer : IComparer<BankClient>
     {
         public int Compare(BankClient? x, BankClient? y)
         {
