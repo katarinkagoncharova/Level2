@@ -1,4 +1,5 @@
 ﻿using Cards.Client;
+using System.Globalization;
 
 namespace Cards.PaymentTools
 {
@@ -34,7 +35,7 @@ namespace Cards.PaymentTools
 
         public override string ToString()
         {
-            return "Cashback Card\n" + base.ToString() + "\nCard amount : " + CashBackCardAmount + "\nCashback procent: " + CashBackProcent + "\n";
+            return "Cashback Card\n" + base.ToString() + "\nCard amount : " + CashBackCardAmount + "\nCashback procent: " + CashBackProcent.ToString(new CultureInfo("ru-RU")) + "\n";
         }
 
         public override bool Equals(object? obj)

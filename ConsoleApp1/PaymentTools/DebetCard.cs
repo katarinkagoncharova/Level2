@@ -6,6 +6,7 @@ namespace Cards.PaymentTools
     {
         private float _depositAmount;
         private float _depositProcent;
+
         public float DepositProcent
         {
             get

@@ -6,6 +6,7 @@ namespace Cards.PaymentTools
     {
         private int _number;
         private int _cvv;
+
         public int Number
         {
             get

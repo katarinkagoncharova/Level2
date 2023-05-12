@@ -6,7 +6,7 @@ namespace Cards.PaymentTools
     {
         public float CreditProcent { get; set; }
         public float CreditLimit { get; set; }
-
+ 
         public CreditCard(int number, ValidDate validDate, CardHolder cardHolder, int cvv, float creditProcent, float creditLimit)
             : base(number, validDate, cardHolder, cvv)
         {
